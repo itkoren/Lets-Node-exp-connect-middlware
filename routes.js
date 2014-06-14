@@ -16,7 +16,7 @@ router.get("/login/:token", function (req, res) {
     if ("toki" === req.params.token) {
         console.log("Login Success");
         req.session.logged_in = true;
-        res.end("Login Success");
+        res.send("Login Success");
         return;
     }
 
@@ -26,11 +26,11 @@ router.get("/login/:token", function (req, res) {
 
 router.get("/finance", secure, function (req, res) {
     // secure!
-    res.end("100 SHEKEL");
+    res.send("100 SHEKEL");
 });
 
 router.get("*", function (req, res) {
-    res.end("Hello Express");
+    res.send("Hello Express");
 });
 
 module.exports = router;
